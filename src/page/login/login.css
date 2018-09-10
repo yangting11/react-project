@@ -1,7 +1,54 @@
-.login_pane{width:300px;height:200px;position:absolute;left:50%;top:50%;margin-left:-150px;margin-top:-100px;}
-.inputClass{
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+.login_pane{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+#Mycanvas{
+    background:rgba(0,200,255,0.5)
+}
+.inputform{
+    left:50%;
+    position: absolute;
+    top:40%;
+    margin-left:-150px;
+    margin-top:-100px;
+    width:300px;
+    height:200px;
+}
+.inputClass .ant-input{
     width:100%;
     height:30px;
     margin: 10px;
-    text-indent:1em;
+    /* text-indent:1em; */
+}
+.loginBtnClass{
+    margin:10px;
+    width:100%;
+}
+.alertClass{
+    position: absolute;
+    left:50%;
+    width:300px;
+    margin-left:-140px;
+    top:100px;
+}
+.anticon{
+    margin-left:5px;
+}
+.anticon-close-circle {
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+    font-size: 12px;
+}
+.anticon-close-circle:hover {
+    color: #999;
+}
+.anticon-close-circle:active {
+    color: #666;
 }
