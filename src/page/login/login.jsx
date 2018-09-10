@@ -152,7 +152,7 @@ class Login extends React.Component{
 					type:'success',
 					message:response.data.message
 				})
-				// window.location.href="/layout"
+				// window.location.href="/home"
 				history.push('/layout')
 			}else{
 				this.setState({
