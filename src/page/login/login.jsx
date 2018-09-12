@@ -1,5 +1,5 @@
 import React from 'react'
-import './login.css'
+import './login.scss'
 import Axios from 'axios'
 import history from '../../history.js'
 import {Button, Input, Icon, Alert} from 'antd'
@@ -153,7 +153,7 @@ class Login extends React.Component{
 					message:response.data.message
 				})
 				// window.location.href="/home"
-				history.push('/layout')
+				history.push('/home')
 			}else{
 				this.setState({
 					visible:true,

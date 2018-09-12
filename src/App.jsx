@@ -17,8 +17,16 @@ class App extends Component {
             
              */}
              <Route exact path="/login" component={Login}></Route>
-             <Route exact path="/layout" component={LayoutItem}></Route>
-             <Redirect to="/login" component={Login}></Redirect>
+             <Route path="/" render={(props=>(
+                <LayoutItem>
+                  <Switch>
+                    <Route exact path="/home" component={Home}></Route>
+                    <Redirect to="/login" component={Login}></Redirect>
+                  </Switch>
+                </LayoutItem>
+             ))}>
+             </Route>
+             
           </Switch>
         </HashRouter>
       </div>
