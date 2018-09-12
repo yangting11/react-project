@@ -127,6 +127,11 @@ class Login extends React.Component{
 	handleClose(){
 
 	}
+	clickEnter(e){
+		if(e.keyCode==13){
+			this.loginAction()
+		}
+	}
     loginAction(e){
 		if(this.state.username == "" || this.state.password == ""){
 			this.setState({
@@ -180,8 +185,8 @@ class Login extends React.Component{
                 <canvas id="Mycanvas"></canvas>
                 <div className="inputform">
                     <p style={{textAlign:'center'}}>您好，请登陆！<span style={{color:'#f00'}}>♥</span></p>
-                    <Input className="inputClass" placeholder="请输入用户名" prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} value={this.state.username} onChange={(e)=>{this.changevalue(e,'username')}} />
-                    <Input className="inputClass" placeholder="请输入密码" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} value={this.state.password} onChange={(e)=>{this.changevalue(e,'password')}} />
+                    <Input className="inputClass" placeholder="请输入用户名" onKeyDown={(e)=>{this.clickEnter(e)}} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} value={this.state.username} onChange={(e)=>{this.changevalue(e,'username')}} />
+                    <Input className="inputClass" placeholder="请输入密码" onKeyDown={(e)=>{this.clickEnter(e)}} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} value={this.state.password} onChange={(e)=>{this.changevalue(e,'password')}} />
                     <Button type="primary" className="loginBtnClass" onClick={(e)=>{this.loginAction(e)}}>登陆</Button>
 				</div>
 				{(function(obj){
