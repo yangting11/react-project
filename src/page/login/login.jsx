@@ -16,6 +16,7 @@ class Login extends React.Component{
         }
     }
     componentDidMount(){
+		alert(1);
         var WIDTH = window.innerWidth;
         var HEIGHT = window.innerHeight;
         var POINT = 35;
