@@ -21,28 +21,28 @@ class Login extends React.Component{
         var POINT = 35;
 	
 	var canvas = document.getElementById('Mycanvas');
-	canvas.width = WIDTH,
+	canvas.width = WIDTH;
 	canvas.height = HEIGHT;
 	var context = canvas.getContext('2d');
 	context.strokeStyle = '#fff';//'rgba(0,0,0,0.04)',
-	context.strokeWidth = 1,
+	context.strokeWidth = 1;
 	context.fillStyle = '#fff';//'rgba(0,0,0,0.08)';
 	var circleArr = [];
 
 	//线条：开始xy坐标，结束xy坐标，线条透明度
 	function Line (x, y, _x, _y, o) {
-		this.beginX = x,
-		this.beginY = y,
-		this.closeX = _x,
-		this.closeY = _y,
+		this.beginX = x;
+		this.beginY = y;
+		this.closeX = _x;
+		this.closeY = _y;
 		this.o = o;
 	}
 	//点：圆心xy坐标，半径，每帧移动xy的距离
 	function Circle (x, y, r, moveX, moveY) {
-		this.x = x,
-		this.y = y,
-		this.r = r,
-		this.moveX = moveX,
+		this.x = x;
+		this.y = y;
+		this.r = r;
+		this.moveX = moveX;
 		this.moveY = moveY;
 	}
 	//生成max和min之间的随机数
@@ -82,10 +82,10 @@ class Login extends React.Component{
 	//每帧绘制
 	function draw () {
 		context.clearRect(0,0,canvas.width, canvas.height);
-		for (var i = 0; i < POINT; i++) {
+		for (let i = 0; i < POINT; i++) {
 			drawCricle(context, circleArr[i].x, circleArr[i].y, circleArr[i].r);
-		}
-		for (var i = 0; i < POINT; i++) {
+		};
+		for (let i = 0; i < POINT; i++) {
 			for (var j = 0; j < POINT; j++) {
 				if (i + j < POINT) {
 					var A = Math.abs(circleArr[i+j].x - circleArr[i].x),
@@ -128,12 +128,12 @@ class Login extends React.Component{
 
 	}
 	clickEnter(e){
-		if(e.keyCode==13){
+		if(e.keyCode===13){
 			this.loginAction()
 		}
 	}
     loginAction(e){
-		if(this.state.username == "" || this.state.password == ""){
+		if(this.state.username === "" || this.state.password === ""){
 			this.setState({
 				visible:true,
 				type:'error',
@@ -151,12 +151,12 @@ class Login extends React.Component{
 		params.append('password',this.state.password);
 		Axios.post('/login/login',params).then(response=>{
 			if(response.data.status){
-				console.log(response)
-				this.setState({
-					visible:true,
-					type:'success',
-					message:response.data.message
-				})
+				// console.log(response)
+				// this.setState({
+				// 	visible:true,
+				// 	type:'success',
+				// 	message:response.data.message
+				// })
 				// window.location.href="/home"
 				history.push('/home')
 			}else{
@@ -191,7 +191,7 @@ class Login extends React.Component{
 				</div>
 				{(function(obj){
 						if(obj.state.visible){
-							if(obj.state.type == 'success'){
+							if(obj.state.type === 'success'){
 								return (<Alert className="alertClass" message={obj.state.message} type="success"  showIcon   />)
 							}else{
 								return (<Alert className="alertClass" message={obj.state.message} type="error" showIcon  />)

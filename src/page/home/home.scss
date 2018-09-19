@@ -1,0 +1,27 @@
+.slider-control-bottomcenter{
+    display: none;
+}
+.iconprev{
+    position:absolute;
+    cursor:pointer;
+    top:50%;
+    margin-top:-10px;
+    font-size:20px;
+    color:#fff;
+    z-index:999;
+}
+.tiptest{
+    color:#fff;
+    position: absolute;
+    bottom:10px;
+    right:20px;
+    z-index:9999;
+
+}
+.scrollicon{
+    font-size:20px;
+    color:#d5d5d5;
+    &:hover{
+        color:#fff;
+    }
+}

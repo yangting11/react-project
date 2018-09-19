@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Axios from 'axios';
 import {HashRouter, Route, Switch,Redirect} from 'react-router-dom'
 import Login from './page/login/login.jsx'
 import Home from './page/home/index.jsx'
 import LayoutItem from './component/layout/index.jsx'
+import CesiumMap from './page/cesium/index.jsx'
 
 class App extends Component {
   render() {
@@ -21,6 +21,7 @@ class App extends Component {
                 <LayoutItem>
                   <Switch>
                     <Route exact path="/home" component={Home}></Route>
+                    <Route path="/cesium" component={CesiumMap}></Route>
                     <Redirect to="/login" component={Login}></Redirect>
                   </Switch>
                 </LayoutItem>
