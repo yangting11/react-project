@@ -8,7 +8,7 @@ const { Header, Content, Footer, Sider } = Layout;
 class LayoutItem extends React.Component{
     render(){
         return (
-            <div style={{height:'100%'}}>
+            <div style={{height:'100vh'}}>
                 <Layout>
                     <Sider breakpoint="lg" collapsedWidth="0" onBreakpoint={(broken) => { console.log(broken); }} onCollapse={(collapsed, type) => { console.log(collapsed, type); }}>
                     <div className="logo" style={{color:'#fff', height:'60px',textAlign:'left',lineHeight:'60px',marginLeft:'30px'}}>11111111111111</div>
@@ -20,7 +20,7 @@ class LayoutItem extends React.Component{
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="2">
-                            <Link to="/home">
+                            <Link to="/weather">
                                 <Icon type="video-camera" />
                                 <span className="nav-text">nav 2</span>
                             </Link>
@@ -41,7 +41,7 @@ class LayoutItem extends React.Component{
                         <Icon type="poweroff" theme="outlined" style={{fontSize:'20px',color:'#fff'}}/>
                         </div>
                     </Header>
-                    <Content style={{ margin: '24px 16px 0' }}>
+                    <Content style={{ margin: '24px 16px 0',height: "calc(100vh - 150px)", overflowY:'scroll' }}>
                         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                             {this.props.children}
                         </div>

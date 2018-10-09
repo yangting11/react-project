@@ -12,6 +12,7 @@ import 'leaflet/dist/leaflet.css'
 // import '../home/leaflet-heat';
 import {tiledMapLayer} from 'esri-leaflet';
 import {antPath} from 'leaflet-ant-path';
+import { Table, Divider, Tag , Button, Popconfirm, message} from 'antd';
 
 // import { homedir } from 'os';
 let map;
@@ -26,8 +27,10 @@ var myIcon = L.icon({
     shadowAnchor:[4,10]
 });
 
+
 class Home extends React.Component{
     componentDidMount(){
+        
         // var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
  
         // mapboxgl.accessToken = 'pk.eyJ1IjoieWFuZ3RpbmcxMjI3IiwiYSI6ImNqbTRqNzc5YzNrbHMzdnA0cDV0MXdydmwifQ.jJQyHbELL0qcBFMMQb1Xcw';
@@ -43,6 +46,7 @@ class Home extends React.Component{
             attribution: '<span id="refdiv"></span>GS(2017)508号'
         }).addTo(map);
         map.on('click',this.onMapClick)
+        alert(map.getCenter())
         L.circle([29.343,121.77], {
             color: 'red',
             fillColor: '#f03',
@@ -55,7 +59,18 @@ class Home extends React.Component{
         marker.on('popupopen',function(){
             alert(1)
         })
+        marker.bindTooltip("my tooltip text").openTooltip();
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar'}).addTo(map);
         //画多边形
+        var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+        imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
+        
+
+        var videoUrl = 'https://www.mapbox.com/bites/00188/patricia_nasa.webm',
+        videoBounds = [[ 29.353,121.77], [ 29.453,121.78]];
+        L.videoOverlay(videoUrl, videoBounds ).addTo(map);
+
+        L.imageOverlay(imageUrl, imageBounds).addTo(map);
         L.polygon([
             [29.353,121.77],
             [29.43,121.77],
@@ -70,7 +85,7 @@ class Home extends React.Component{
         L.polyline(latlngs,{color:'red',width:'10px'}).addTo(map)
         let route2 = [[29.4805297852,121.724304199], [29.4592895508,122.5290527]]
         let path2 = antPath(route2,
-            {"delay":1000,"dashArray":[10,20],"weight":5,"color":"#f00","pulseColor":"green","paused":false}
+            {"delay":2000,"dashArray":[10,20],"weight":5,"color":"#f00","pulseColor":"green","paused":false}
         );
         diversionGroup.addLayer(path2).addTo(map);
 
@@ -91,8 +106,21 @@ class Home extends React.Component{
         // }).addTo(map);
         
     }
+    confirm(e) {
+        console.log(e);
+        message.success('Click on Yes');
+      }
+
+      cancel(e) {
+        console.log(e);
+        message.error('Click on No');
+      }
     onMapClick(e){
         alert('点击地图'+e.latlng)
+    }
+    deletaction(key){
+        alert('点击删除');
+        console.log(key);
     }
     getOption(){
         let option = {
@@ -112,6 +140,65 @@ class Home extends React.Component{
         return option     
     }
     render(){
+        var columns = [{
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            render: text => <a href="javascript:;">{text}11</a>,  //text为获取到的参数
+          }, {
+            title: 'Age',
+            dataIndex: 'age',
+            key: 'age',
+            render: text => <a href="javascript:;">{text}-岁</a>,  //text为获取到的参数
+          }, {
+            title: 'Address',
+            dataIndex: 'address',
+            key: 'address',
+            render: text => <a href="javascript:;">{text}</a>,  //text为获取到的参数
+          }, {
+            title: 'Tags',
+            key: 'tags',
+            dataIndex: 'tags',
+            render: text => (
+              <span>
+                {text.map(textitem => <Tag color="blue" key={textitem}>{textitem}</Tag>)}
+              </span>
+            ),
+          }, {
+            title: 'Action',
+            key: 'action',
+            render: (text, record,index) => (
+              <span>
+                <a href="javascript:;">Invite {record.name}</a>
+                <Divider type="vertical" />
+                {/* <a href="javascript:;" >Delete</a> */}
+                <Popconfirm title="Are you sure delete this task?" onConfirm={this.confirm} onCancel={this.cancel} okText="Yes" cancelText="No">
+                    <Button type="danger" size="small" onClick={()=>this.deletaction(index)}>删除</Button>
+                </Popconfirm>
+                
+              </span>
+            ),
+          }];
+          
+          var data = [{
+            key: '1',
+            name: 'John Brown',
+            age: 32,
+            address: 'New York No. 1 Lake Park',
+            tags: ['nice', 'developer'],
+          }, {
+            key: '2',
+            name: 'Jim Green',
+            age: 42,
+            address: 'London No. 1 Lake Park',
+            tags: ['loser'],
+          }, {
+            key: '3',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+            tags: ['cool', 'teacher'],
+          }];
         return (
             <div>
                 <div id="mymap" style={{width:'100%',height:'400px'}}></div>
@@ -124,9 +211,13 @@ class Home extends React.Component{
                 onChartReady={this.onChartReadyCallback}
                 style={{height:'300px',width:'100%'}}
                 opts={{renderer: 'svg'}} />
+                <Table columns={columns} dataSource={data} />
             </div>
             )
     }
 }
 
 export default Home
+
+
+
