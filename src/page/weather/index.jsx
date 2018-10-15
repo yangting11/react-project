@@ -46,11 +46,11 @@ var map;
 var myIcon = L.icon({
     iconUrl: '/images/marker-icon.png',
     iconSize: [20, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [6, 0],
-    shadowUrl:'/images/marker-shadow.png',
-    shadowSize:[5,10],
-    shadowAnchor:[4,10]
+    // iconAnchor: [15, 30],
+    // popupAnchor: [6, 0],
+    // shadowUrl:'/images/marker-shadow.png',
+    // shadowSize:[5,10],
+    // shadowAnchor:[4,10]
 });
 class Weather extends React.Component{
     componentDidMount(){
@@ -80,6 +80,7 @@ class Weather extends React.Component{
             }
         })
         let diversionGroup = L.layerGroup({})
+        let marker1 = L.marker([29.4592895508,121.9290527],{icon:myIcon}).addTo(map).bindPopup('<div>这个地方是随机的</div>')
         let path2 = antPath([[29.353,121.77], [29.4592895508,121.9290527]],
             {"delay":1000,"dashArray":[10,20],"weight":5,"color":"#f00","pulseColor":"green","paused":false}
         );

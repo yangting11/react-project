@@ -26,8 +26,10 @@ class LayoutItem extends React.Component{
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="3">
-                        <Icon type="upload" />
-                        <span className="nav-text">nav 3</span>
+                            <Link to="/chinesetms">
+                                <Icon type="upload" />
+                                <span className="nav-text">nav 3</span>
+                            </Link>
                         </Menu.Item>
                         <Menu.Item key="4">
                         <Icon type="user" />

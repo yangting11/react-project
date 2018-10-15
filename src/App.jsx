@@ -7,6 +7,8 @@ import Home from './page/home/index.jsx'
 import LayoutItem from './component/layout/index.jsx'
 import CesiumMap from './page/cesium/index.jsx'
 import Weather from './page/weather/index.jsx'
+import WrappedNormalLoginForm from './page/antlogin/index.jsx'
+import Chinesetms from './page/chinesetms/index.jsx'
 
 class App extends Component {
   render() {
@@ -18,11 +20,13 @@ class App extends Component {
             
              */}
              <Route exact path="/login" component={Login}></Route>
+             <Route exact path="/antlogin" component={WrappedNormalLoginForm}></Route>
              <Route exact path="/weather" component={Weather}></Route>
              <Route path="/" render={(props=>(
                 <LayoutItem>
                   <Switch>
                     <Route exact path="/home" component={Home}></Route>
+                    <Route exact path="/chinesetms" component={Chinesetms}></Route>
                     <Route path="/cesium" component={CesiumMap}></Route>
                     <Redirect to="/login" component={Login}></Redirect>
                   </Switch>
