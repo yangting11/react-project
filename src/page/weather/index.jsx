@@ -80,7 +80,10 @@ class Weather extends React.Component{
             }
         })
         let diversionGroup = L.layerGroup({})
+<<<<<<< HEAD
         L.marker([29.4592895508,121.9290527],{icon:myIcon}).addTo(map).bindPopup('<div>这个地方是随机的</div>')
+=======
+>>>>>>> b51d832f08a10afb62c013f3eca8cb3eeeec0b7b
         let path2 = antPath([[29.353,121.77], [29.4592895508,121.9290527]],
             {"delay":1000,"dashArray":[10,20],"weight":5,"color":"#f00","pulseColor":"green","paused":false}
         );
