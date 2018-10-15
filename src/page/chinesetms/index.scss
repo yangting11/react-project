@@ -1,0 +1,62 @@
+.selected{
+    background: url("../../assets/images/mapType.jpg") no-repeat;
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    z-index: 999999;
+    cursor:pointer;
+    width: 86px;
+    height: 60px;
+    span{
+        display:inline-block;
+        padding:2px 4px;
+        position:absolute;
+        right:0px;
+        bottom:0px;
+        font-size:12px;
+        background:rgba(255,120,0,0.7);
+        color:#fff;
+    }
+}
+.items{
+    position: absolute;
+    width: 256px;
+    bottom: 5px;
+    height: 60px;
+    z-index: 9999;
+    right: 20px;
+    .item{
+        background: url("../../assets/images/mapType.jpg") no-repeat;
+        position: absolute;
+        cursor: pointer;
+        width: 86px;
+        height:60px;
+        right: 0px;
+        bottom: 0;
+        &:hover{
+            border: 1px solid #fff;
+            box-shadow: 0 0 4px yellow inset;
+        }
+        span{
+            display:inline-block;
+            padding:2px 4px;
+            position:absolute;
+            right:0px;
+            bottom:0px;
+            font-size:12px;
+            background:rgba(255,120,0,0.7);
+            color:#fff;
+        }
+    }
+    .item1{   
+        background-position: 0 -120px;
+    }
+    .item2{
+        background-position: 0 -60px;
+        right: 90px;
+    }
+    .item3{
+        background-position: 0 0;
+        right: 180px;
+    }
+}
