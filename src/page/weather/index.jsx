@@ -63,7 +63,7 @@ class Weather extends React.Component{
             minZoom: 8,
             attribution: '<span id="refdiv"></span>GS(2017)508号'
         }).addTo(map);
-        var marker = L.marker([29.353,121.77],{icon:myIcon}).addTo(map).bindPopup("<li>你是不是</li>")
+        var marker = L.marker([29.353,121.77],{icon:myIcon}).addTo(map).bindPopup("<div>这里是实现的效果</div>")
         map.on('click',function(e){
             alert(e.latlng)
         })
@@ -79,15 +79,12 @@ class Weather extends React.Component{
                     break;
             }
         })
-        let diversionGroup = L.layerGroup({})
-<<<<<<< HEAD
-        L.marker([29.4592895508,121.9290527],{icon:myIcon}).addTo(map).bindPopup('<div>这个地方是随机的</div>')
-=======
->>>>>>> b51d832f08a10afb62c013f3eca8cb3eeeec0b7b
-        let path2 = antPath([[29.353,121.77], [29.4592895508,121.9290527]],
-            {"delay":1000,"dashArray":[10,20],"weight":5,"color":"#f00","pulseColor":"green","paused":false}
-        );
-        diversionGroup.addLayer(path2).addTo(map);
+        // let diversionGroup = L.layerGroup({})
+        // L.marker([29.4592895508,121.9290527],{icon:myIcon}).addTo(map).bindPopup('<div>这个地方是随机的</div>')
+        // let path2 = antPath([[29.353,121.77], [29.4592895508,121.9290527]],
+        //     {"delay":1000,"dashArray":[10,20],"weight":5,"color":"#f00","pulseColor":"green","paused":false}
+        // );
+        // diversionGroup.addLayer(path2).addTo(map);
 
     }
     getOption(){

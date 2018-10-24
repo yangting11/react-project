@@ -32,8 +32,10 @@ class LayoutItem extends React.Component{
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="4">
-                        <Icon type="user" />
-                        <span className="nav-text">nav 4</span>
+                            <Link to="/cesium">
+                                <Icon type="user" />
+                                <span className="nav-text">nav 4</span>
+                            </Link>
                         </Menu.Item>
                     </Menu>
                     </Sider>
@@ -48,9 +50,9 @@ class LayoutItem extends React.Component{
                             {this.props.children}
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>
+                    {/* <Footer style={{ textAlign: 'center' }}>
                         Ant Design ©2018 Created by Ant UED
-                    </Footer>
+                    </Footer> */}
                     </Layout>
                 </Layout>
             </div>

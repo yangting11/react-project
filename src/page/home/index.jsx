@@ -80,7 +80,8 @@ class Home extends React.Component{
         var latlngs = [
             [29.43,122.123],
             [29.33,123.123],
-            [29.23,121.123]
+            [29.23,121.123],
+            [28.93,122.123],
         ]
         L.polyline(latlngs,{color:'red',width:'10px'}).addTo(map)
         let route2 = [[29.4805297852,121.724304199], [29.4592895508,122.5290527]]
