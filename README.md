@@ -3,8 +3,9 @@
 然后 找到node_modeules下面的react-script/config/...dev这个配置文件
 然后 在css的部分复制如下
 {
-    test: /\.scss$/,
+    test: /\.scss$/,  //正则表达
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
 },
+
 
 然后yarn start就可以了
